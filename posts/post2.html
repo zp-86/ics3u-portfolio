@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetition Structure – My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+<header class="sticky top-0 bg-white shadow-sm">
+    <nav class="container mx-auto flex items-center justify-between p-4">
+        <a href="/index.html" class="text-xl font-semibold hover:text-blue-600 transition-colors">
+            ICS3U portfolio
+        </a>
+        <ul class="flex space-x-6">
+            <li><a href="/ics3u-portfolio/index.html" class="hover:text-blue-600 transition-colors">About</a></li>
+            <li><a href="/ics3u-portfolio/posts.html" class="hover:text-blue-600 transition-colors">Posts</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container mx-auto px-4 py-16 fade-in-up max-w-4xl">
+    <a href="/ics3u-portfolio/posts.html" class="text-blue-600 hover:text-blue-700 mb-4 inline-block">&larr; Back to Posts</a>
+
+    <article class="bg-white rounded-xl shadow-lg p-8">
+        <h1 class="text-4xl font-bold mb-4">Repetition Structure</h1>
+        <p class="text-gray-500 mb-8">Using loops to efficiently load card images</p>
+
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-6">
+                I implemented a for loop to load all the card images into my arrays.
+            </p>
+
+            <div class="bg-gray-900 text-gray-100 rounded-lg p-6 mb-6 overflow-x-auto">
+                <pre><code class="text-sm">String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+
+for (int i = 0; i &lt; 13; i++) {
+  spades[i]   = loadImage("Type = " + ranks[i] + " (Spades).png");
+  hearts[i]   = loadImage("Type = " + ranks[i] + " (Hearts).png");
+  clubs[i]    = loadImage("Type = " + ranks[i] + " (Clubs).png");
+  diamonds[i] = loadImage("Type = " + ranks[i] + " (Diamonds).png");
+}</code></pre>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+                I used this code inside the setup() function. First, the 4 PImage arrays are loaded (spades, hearts, clubs, diamonds) with the correct image files. I implemented it this way because there are 52 cards in a deck, and writing a separate loadImage line for every single card would be inefficient and take up too much space. By using a loop that runs 13 times (0 to 12), I can load the card for all four suits at the same time, keeping the code clean.
+            </p>
+
+            <p class="text-gray-700 leading-relaxed">
+                The biggest challenge I had was that my file names had specific names ("Ace", "Jack", "Queen", etc.). I was going to use the loop number for the file name (like 1.png, 2.png, etc.), but that wouldn't work for the face cards and different card types. To fix this, I created an array called <span class="font-mono bg-gray-100 px-2 py-1 rounded">ranks</span> that lists the names of the cards in the correct order.
+            </p>
+        </div>
+    </article>
+</main>
+
+</body>
+</html>
+

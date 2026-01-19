@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays & Data Structures – My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+<header class="sticky top-0 bg-white shadow-sm">
+    <nav class="container mx-auto flex items-center justify-between p-4">
+        <a href="/index.html" class="text-xl font-semibold hover:text-blue-600 transition-colors">
+            ICS3U portfolio
+        </a>
+        <ul class="flex space-x-6">
+            <li><a href="/ics3u-portfolio/index.html" class="hover:text-blue-600 transition-colors">About</a></li>
+            <li><a href="/ics3u-portfolio/posts.html" class="hover:text-blue-600 transition-colors">Posts</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container mx-auto px-4 py-16 fade-in-up max-w-4xl">
+    <a href="/ics3u-portfolio/posts.html" class="text-blue-600 hover:text-blue-700 mb-4 inline-block">&larr; Back to Posts</a>
+
+    <article class="bg-white rounded-xl shadow-lg p-8">
+        <h1 class="text-4xl font-bold mb-4">Arrays & Data Structures</h1>
+        <p class="text-gray-500 mb-8">Managing player and dealer cards dynamically</p>
+
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-6">
+                I added two new integer arrays to track the cards for the player and the dealer. I set the size to 10 because you won't have more than 10 cards in a hand in Blackjack.
+            </p>
+
+            <div class="bg-gray-900 text-gray-100 rounded-lg p-6 mb-6 overflow-x-auto">
+                <pre><code class="text-sm">int[] pCards = new int[10];
+int[] dCards = new int[10];
+
+// Displaying the cards using the array
+for (int i = 0; i &lt; pCount; i++) {
+  image(suit[pCards[i]], 630 + (i*120), 740, 150, 210);
+}</code></pre>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+                To store multiple items, I created an array with a fixed size (10) and then assigned values to each index as the game goes on. For example, when the player hits, I generate a random number between 0 and 12 and store it in the <span class="font-mono bg-gray-100 px-2 py-1 rounded">pCards</span> array. To access them, I use the index of the array inside a loop. In the code above, <span class="font-mono bg-gray-100 px-2 py-1 rounded">pCards[i]</span> lets me get the value of a card, so I know which image to draw.
+            </p>
+
+            <p class="text-gray-700 leading-relaxed">
+                These arrays help my game by letting the hand size change dynamically. Without them, I would need variables like <span class="font-mono bg-gray-100 px-2 py-1 rounded">card1</span>, <span class="font-mono bg-gray-100 px-2 py-1 rounded">card2</span>, <span class="font-mono bg-gray-100 px-2 py-1 rounded">card3</span>, etc., which would make the code really messy and hard to manage. Using arrays makes it easy to calculate the total score of the hand just by looping through all of the items in the array.
+            </p>
+        </div>
+    </article>
+</main>
+
+</body>
+</html>
+

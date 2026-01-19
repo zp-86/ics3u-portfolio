@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Structure – My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+<header class="sticky top-0 bg-white shadow-sm">
+    <nav class="container mx-auto flex items-center justify-between p-4">
+        <a href="/index.html" class="text-xl font-semibold hover:text-blue-600 transition-colors">
+            ICS3U portfolio
+        </a>
+        <ul class="flex space-x-6">
+            <li><a href="/ics3u-portfolio/index.html" class="hover:text-blue-600 transition-colors">About</a></li>
+            <li><a href="/ics3u-portfolio/posts.html" class="hover:text-blue-600 transition-colors">Posts</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="container mx-auto px-4 py-16 fade-in-up max-w-4xl">
+    <a href="/ics3u-portfolio/posts.html" class="text-blue-600 hover:text-blue-700 mb-4 inline-block">&larr; Back to Posts</a>
+
+    <article class="bg-white rounded-xl shadow-lg p-8">
+        <h1 class="text-4xl font-bold mb-4">Selection Structure</h1>
+        <p class="text-gray-500 mb-8">Determining winners with conditional logic</p>
+
+        <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-6">
+                I used if and if-else statements to find the winner of each round.
+            </p>
+
+            <div class="bg-gray-900 text-gray-100 rounded-lg p-6 mb-6 overflow-x-auto">
+                <pre><code class="text-sm">if (pTotal &lt;= 21 && (dTotal > 21 || pTotal > dTotal)) { // Player win
+  coins += currentBet;
+  coinsEarned += currentBet;
+} else if (pTotal > 21 || (dTotal &lt;= 21 && dTotal > pTotal)) { // Dealer Win
+  coins -= currentBet;
+  gamesLost++;
+}</code></pre>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">
+                I used this inside the <span class="font-mono bg-gray-100 px-2 py-1 rounded">resolveRound()</span> function. The code checks the final scores of the player and the dealer, and it finds out who won the round. I implemented it this way because there are multiple conditions to win a round in Blackjack. The player wins if they have 21 or less AND the dealer busts (over 21) OR if the player's score is higher than the dealer's. If I didn't use AND and OR in my code, I would have had to write a bunch of if statements, which would be messy.
+            </p>
+
+            <p class="text-gray-700 leading-relaxed">
+                The challenge I had was when the dealer and player tie, and making sure the logic covered every possibility. Originally, I just checked if the player's total was greater than the dealer's total, but that didn't check if the player busted. If the player had 22, they should lose immediately. I fixed this by adding a check to see if the player's total is less than or equal to 21. I also realized I didn't need a separate code block for a tie, if the player did not bust, but also does not have more or less than the dealer (None of the if's are true), nothing happens to the money, which is how a tie works.
+            </p>
+        </div>
+    </article>
+</main>
+
+</body>
+</html>
+
